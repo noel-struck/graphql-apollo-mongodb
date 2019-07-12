@@ -7,13 +7,13 @@ const typeDefs = gql`
     description: String!
     price: Int
     available: Boolean
-    category: ProductsCategory
+    category: ProductCategory
   }
 
-  type PrductCategory {
+  type ProductCategory {
     id: ID!
     name(category: AllowedCategory): String,
-    products: [Products]!
+    products: [Product]!
   }
 
   enum AllowedCategory {
