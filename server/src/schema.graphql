@@ -1,0 +1,24 @@
+#import 'modules/category/category.graphql'
+#import 'modules/product/product.graphql'
+
+type Query {
+  # Category Queries
+  categoryList: CategoryListResponse
+  categoryDetails(id: String): CategoryResponse
+
+  # Product Queries
+  productList: ProductListResponse
+  productDetails(id: String!): ProductResponse!
+}
+
+type Mutation {
+  # Category Muations
+  createCategory(category: CategoryInput): CategoryResponse
+  updateCategory(id: String, category: CategoryInput): CategoryResponse
+  deleteCategory(id: String): CategoryListResponse
+
+  # Product Mutations
+  createProduct(product: ProductInput): ProductResponse!
+  updateProduct(id: String, product: ProductInput): ProductResponse!
+  deleteProduct(id: String): ProductListResponse
+}

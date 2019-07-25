@@ -1,19 +1,15 @@
-const Product = require('./models/product.model');
+const productResolver = require('./modules/product/product.resolver');
+const categoryResolver = require('./modules/category/category.resolver');
 
 const resolvers = {
   Query: {
-    productList: () => {
-      
-    }
+    ...productResolver.Query,
+    ...categoryResolver.Query
   },
   Mutation: {
-    createProduct: async (_, { product }, ) => {
-      const productInstance = new Product({ product });
-      await productInstance.save();
-      console.log(productInstance);
-      return productInstance;
-    }
+    ...productResolver.Mutation,
+    ...categoryResolver.Mutation
   }
-}
+};
 
 module.exports = resolvers;
